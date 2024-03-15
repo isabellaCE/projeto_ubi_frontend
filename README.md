@@ -14,6 +14,16 @@
 
 </br>
 
+## 😁 Integrantes
+
+-   Dheymer Avelar
+-   Felipe Grecco
+-   Gabriel Campos
+-   Hayesca Oliveira
+-   Isabella Emiliano
+-   Nestor Junio
+-   Pedro Steiner
+
 ## Passo a passo para rodar o frontend do projeto UBI
 
 ### Instalação do Node JS  <img align="center" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" />
