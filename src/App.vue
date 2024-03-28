@@ -1,4 +1,11 @@
 <script>
+import { i18nextPromise } from './i18n.js'
+export default {
+  async setup() {
+    await i18nextPromise
+    return {}
+  }
+}
 </script>
 
 <template>
