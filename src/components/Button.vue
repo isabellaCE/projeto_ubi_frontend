@@ -11,13 +11,13 @@ export default {
       type: String,
       default: '',
     },
-    color:{
+    color: {
       type: String,
       default: '#780000'
     },
     handleClick: {
       type: Function,
-      default: () => {}
+      default: () => { }
     },
   },
   computed: {
@@ -39,5 +39,6 @@ export default {
   align-items: center;
   box-shadow: -3px 5px 15px -8px rgba(127, 143, 164, 0.3);
   cursor: pointer;
+  font-family: 'Abel';
 }
 </style>
