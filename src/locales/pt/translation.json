@@ -1,3 +1,18 @@
 {
-  "hello": "Oi"
+  "register": {
+    "UBI": "Projeto UBI",
+    "label_name": "Insira seu nome",
+    "label_surname": "Insira seu sobrenome",
+    "label_email": "Insira seu email",
+    "label_password": "Insira sua senha",
+    "label_confirm_password": "Confirme sua senha",
+    "placeholder_name": "nome",
+    "placeholder_surname": "sobrenome",
+    "placeholder_email": "name@example.com",
+    "placeholder_password": "password",
+    "placeholder_confirm_password": "password",
+    "register": "Cadastrar",
+    "have_account": "Já tem uma conta?",
+    "login": " Entre"
+  }
 }
