@@ -5,26 +5,36 @@
       <div class="ubi-inputs">
         <Input 
           :label="$t('register.label_name')"
-          :placeholder="$t('register.placeholder_name')"    
+          :placeholder="$t('register.placeholder_name')"   
+          v-model="name" 
+          @input="getName"
         />
         <Input 
           :label="$t('register.label_surname')"
           :placeholder="$t('register.placeholder_surname')"    
+          v-model="surname" 
+          @input="getSurname"
         />
         <Input 
           :label="$t('register.label_email')"
           :placeholder="$t('register.placeholder_email')"     
           type="email"
+          v-model="email" 
+          @input="getEmail"
         />
         <Input 
           :label="$t('register.label_password')"
           :placeholder="$t('register.placeholder_password')"     
           type="password"
+          v-model="password" 
+          @input="getPassword"
         />
         <Input 
           :label="$t('register.label_confirm_password')"
           :placeholder="$t('register.placeholder_confirm_password')" 
           type="password"
+          v-model="password_confirm" 
+          @input="confirmPassword"
         />
       </div>
       <Button :label="$t('register.register')" :handleClick="goTo"></Button>
@@ -32,10 +42,11 @@
         <span>{{ $t('register.have_account') }}</span>
         <span class="login" @click="goTo">{{ $t('register.login') }}</span>
       </div>
+      <ChooseLanguage/>
     </div>
     <div class="ubi-banner">
       <div class="img">
-        <img src="../assets/banner.png" alt="">
+        <img src="../assets/banner.png">
       </div>
     </div>
   </div>
@@ -44,26 +55,42 @@
 <script>
 import Input from "../components/Input.vue";
 import Button from "../components/Button.vue";
+import ChooseLanguage from "../components/ChooseLanguage.vue";
 
 export default {
   components: {
     Input,
     Button,
+    ChooseLanguage,
+  },
+  data() {
+    return {
+      name: '',
+      surname: '',
+      email: '',
+      password: '',
+      password_confirm: '',
+    }
   },
   methods: {
     goTo() {
       this.$router.push('/');
     },
-  },
-  i18n: {
-    messages: {
-      en: {
-        null_label: 'Null',
-      },
-      pt: {
-        null_label: 'Nulo',
-      },
+    getName(name) {
+      this.name = name;
     },
+    getSurname(surname) {
+      this.surname = surname;
+    },
+    getEmail(email) {
+      this.email = email;
+    },
+    getPassword(password) {
+      this.password = password;
+    },
+    confirmPassword(password) {
+      this.password_confirm = password;
+    }
   },
 }
 </script>
@@ -108,7 +135,7 @@ export default {
   justify-content: center;
 }
 .have-account {
-  margin-top: 32px;
+  margin: 32px 0;
 }
 .login {
   color: #780000;

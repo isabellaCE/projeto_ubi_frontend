@@ -5,11 +5,14 @@
     </label>
     <input 
       class="ubi-input-put" 
+      :class="{'error': error}"
       :type="type" 
       :placeholder="placeholder"
-      :value="value"
-      @input="$emit('input', $event.target.value)"
+      :value="modelValue"
+      :disabled="disabled"
+      @input.stop="$emit('input', $event.target.value)"
     >
+    <span v-if="error" class="error_message">{{ error_message }}</span>
   </div>
 </template>
 
@@ -17,10 +20,6 @@
 export default {
   name: 'Input',
   props: {
-    value: {
-      type: [String, Number],
-      default: '',
-    },
     label: {
       type: String,
       default: '',
@@ -37,7 +36,21 @@ export default {
       type: String,
       default: 'text',
     },
+    error: {
+      type: Boolean,
+      default: false,
+    },
+    error_message: {
+      type: String,
+      default: '',
+    },
+    modelValue: [String, Number]
   },
+  methods: {
+    updateValue(event) {
+      this.$emit("update:modelValue", event.target.value);
+    }
+  }
 }
 </script>
 
@@ -65,5 +78,12 @@ export default {
 input:focus {
   border: 1px solid rgb(9, 109, 53);
   outline: 0;
+}
+.error {
+  border-color: red;
+}
+.error_message {
+  color: red;
+  margin-top: 4px;
 }
 </style>
