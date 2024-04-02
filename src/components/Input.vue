@@ -3,22 +3,28 @@
     <label class="ubi-Label">
       {{ label }}
     </label>
-    <input 
-      class="ubi-input-put" 
-      :class="{'error': error}"
-      :type="type" 
-      :placeholder="placeholder"
-      :value="modelValue"
-      :disabled="disabled"
-      @input.stop="$emit('input', $event.target.value)"
-    >
-    <span v-if="error" class="error_message">{{ error_message }}</span>
+    <div class="input-with-icon">
+      <User class="i"></User>
+      <input 
+        class="ubi-input-put" 
+        :class="{'error': error}"
+        :type="type" 
+        :placeholder="placeholder"
+        :value="modelValue"
+        :disabled="disabled"
+        @input.stop="$emit('input', $event.target.value)"
+      >
+      <span v-if="error" class="error_message">{{ error_message }}</span>
+    </div>
   </div>
 </template>
 
 <script>
+import User from "@/components/Icons/User.vue"
+import Icon from "@/components/Icons/Icon.vue"
 export default {
   name: 'Input',
+  components: {User, Icon},
   props: {
     label: {
       type: String,
@@ -85,5 +91,19 @@ input:focus {
 .error_message {
   color: red;
   margin-top: 4px;
+}
+.input-with-icon {
+  position: relative;
+  width: 100%
+}
+.input-with-icon .i {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 10px; /* Ajuste conforme necessário para a posição horizontal */
+  pointer-events: none;
+}
+.ubi-input-put {
+  padding-left: 35px; /* Ajuste conforme necessário para acomodar o ícone */
 }
 </style>
