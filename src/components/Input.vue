@@ -4,7 +4,9 @@
       {{ label }}
     </label>
     <div class="input-with-icon">
-      <User class="i"></User>
+      <div class="input-icon">
+        <slot name="icon"></slot>
+      </div>
       <input 
         class="ubi-input-put" 
         :class="{'error': error}"
@@ -20,11 +22,9 @@
 </template>
 
 <script>
-import User from "@/components/Icons/User.vue"
-import Icon from "@/components/Icons/Icon.vue"
+
 export default {
   name: 'Input',
-  components: {User, Icon},
   props: {
     label: {
       type: String,
@@ -96,9 +96,9 @@ input:focus {
   position: relative;
   width: 100%
 }
-.input-with-icon .i {
+.input-with-icon .input-icon {
   position: absolute;
-  top: 50%;
+  top: 55%;
   transform: translateY(-50%);
   left: 10px; /* Ajuste conforme necessário para a posição horizontal */
   pointer-events: none;

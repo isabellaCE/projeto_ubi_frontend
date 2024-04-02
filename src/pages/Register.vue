@@ -8,34 +8,54 @@
           :placeholder="$t('register.placeholder_name')"   
           v-model="name" 
           @input="getName"
-        />
+        >
+          <template #icon>
+            <User/>
+          </template>
+        </Input>
         <Input 
           :label="$t('register.label_surname')"
           :placeholder="$t('register.placeholder_surname')"    
           v-model="surname" 
           @input="getSurname"
-        />
+        >
+          <template #icon>
+            <User/>
+          </template>
+        </Input>
         <Input 
           :label="$t('register.label_email')"
           :placeholder="$t('register.placeholder_email')"     
           type="email"
           v-model="email" 
           @input="getEmail"
-        />
+        >
+          <template #icon>
+            <Email/>
+          </template>
+        </Input>
         <Input 
           :label="$t('register.label_password')"
           :placeholder="$t('register.placeholder_password')"     
           type="password"
           v-model="password" 
           @input="getPassword"
-        />
+        >
+          <template #icon>
+            <Locker/>
+          </template>
+        </Input>
         <Input 
           :label="$t('register.label_confirm_password')"
           :placeholder="$t('register.placeholder_confirm_password')" 
           type="password"
           v-model="password_confirm" 
           @input="confirmPassword"
-        />
+        >
+          <template #icon>
+            <Locker/>
+          </template>
+        </Input>
       </div>
       <Button :label="$t('register.register')" :handleClick="goTo"></Button>
       <div class="have-account">
@@ -56,12 +76,18 @@
 import Input from "../components/Input.vue";
 import Button from "../components/Button.vue";
 import ChooseLanguage from "../components/ChooseLanguage.vue";
+import User from "@/components/Icons/User.vue";
+import Email from "@/components/Icons/Email.vue";
+import Locker from "@/components/Icons/Locker.vue";
 
 export default {
   components: {
     Input,
     Button,
     ChooseLanguage,
+    User,
+    Email,
+    Locker,
   },
   data() {
     return {
